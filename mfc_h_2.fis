@@ -1,0 +1,41 @@
+[System]
+Name='mfc_2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='std'
+Range=[0 1]
+NumMFs=3
+MF1='in':'gaussmf',[0.1526 0.312]
+MF2='out':'gaussmf',[0.0736 0.1271]
+MF3='pass':'gaussmf',[0.139 0.2061]
+
+[Input2]
+Name='mean'
+Range=[0 1]
+NumMFs=3
+MF1='in':'gaussmf',[0.0922 0.6716]
+MF2='out':'gaussmf',[0.0896 0.3631]
+MF3='pass':'gaussmf',[0.1693 0.4945]
+
+[Output1]
+Name='in/out/pass'
+Range=[0 1]
+NumMFs=3
+MF1='in':'trimf',[0 0.1666 0.3333]
+MF2='out':'trimf',[0.333 0.4999 0.6666]
+MF3='pass':'trimf',[0.6666 0.8332 1]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
+3 3, 3 (1) : 1

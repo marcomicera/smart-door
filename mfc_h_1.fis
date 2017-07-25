@@ -1,0 +1,37 @@
+[System]
+Name='mfc_1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='std'
+Range=[0 1]
+NumMFs=2
+MF1='dynamic':'gaussmf',[0.0279 0.2828]
+MF2='static':'gaussmf',[0.027 0.2581]
+
+[Input2]
+Name='mean'
+Range=[0 1]
+NumMFs=2
+MF1='dynamic':'gaussmf',[0.0461 0.4788]
+MF2='static':'gaussmf',[0.057 0.7287]
+
+[Output1]
+Name='dynamic/static'
+Range=[0 1]
+NumMFs=2
+MF1='dynamic':'trimf',[0 0.25 0.5]
+MF2='static':'trimf',[0.5 0.75 1]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
